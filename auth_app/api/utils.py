@@ -1,6 +1,8 @@
-"""Helper functions for setting the JWT auth cookies."""
+"""Helper functions for the JWT auth cookies and tokens."""
 
 from django.conf import settings
+from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 def set_cookie(response, key, value, lifetime):
@@ -25,3 +27,19 @@ def set_refresh_cookie(response, refresh_token):
     """Store the refresh token in the refresh_token cookie."""
     lifetime = settings.SIMPLE_JWT['REFRESH_TOKEN_LIFETIME']
     set_cookie(response, 'refresh_token', str(refresh_token), lifetime)
+
+
+def delete_auth_cookies(response):
+    """Remove both JWT cookies from the client."""
+    response.delete_cookie('access_token', samesite='Lax')
+    response.delete_cookie('refresh_token', samesite='Lax')
+
+
+def blacklist_refresh_token(raw_token):
+    """Blacklist the refresh token; ignore missing or invalid tokens."""
+    if raw_token is None:
+        return
+    try:
+        RefreshToken(raw_token).blacklist()
+    except TokenError:
+        pass
