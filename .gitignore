@@ -60,3 +60,22 @@ $RECYCLE.BIN/
 # Environment
 .env
 .venv
+
+### Python ###
+__pycache__/
+*.py[cod]
+
+### Django ###
+db.sqlite3
+media/
+
+### Quizly ###
+# Temporary audio files from yt_dlp
+tmp_audio/
+*.mp3
+*.m4a
+*.webm
+*.wav
+
+# Course material
+resources/
