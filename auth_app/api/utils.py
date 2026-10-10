@@ -35,6 +35,16 @@ def delete_auth_cookies(response):
     response.delete_cookie('refresh_token', samesite='Lax')
 
 
+def get_valid_refresh_token(raw_token):
+    """Return a RefreshToken if the raw token is valid, otherwise None."""
+    if raw_token is None:
+        return None
+    try:
+        return RefreshToken(raw_token)
+    except TokenError:
+        return None
+
+
 def blacklist_refresh_token(raw_token):
     """Blacklist the refresh token; ignore missing or invalid tokens."""
     if raw_token is None:

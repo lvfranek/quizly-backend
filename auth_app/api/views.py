@@ -11,6 +11,7 @@ from .serializers import RegistrationSerializer
 from .utils import (
     blacklist_refresh_token,
     delete_auth_cookies,
+    get_valid_refresh_token,
     set_access_cookie,
     set_refresh_cookie,
 )
@@ -79,4 +80,23 @@ class LogoutView(APIView):
                       'Refresh token is now invalid.'
         })
         delete_auth_cookies(response)
+        return response
+
+
+class TokenRefreshView(APIView):
+    """Issue a new access token using the refresh_token cookie."""
+
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        """Set a new access_token cookie if the refresh token is valid."""
+        refresh = get_valid_refresh_token(request.COOKIES.get('refresh_token'))
+        if refresh is None:
+            return Response(
+                {'detail': 'Refresh token invalid or missing.'},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+        response = Response({'detail': 'Token refreshed'})
+        set_access_cookie(response, refresh.access_token)
         return response
