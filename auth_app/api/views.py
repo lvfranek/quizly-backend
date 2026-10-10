@@ -11,6 +11,7 @@ from .serializers import RegistrationSerializer
 class RegistrationView(APIView):
     """Register a new user account."""
 
+    authentication_classes = []
     permission_classes = [AllowAny]
 
     def post(self, request):
