@@ -1,9 +1,11 @@
 """API views for quizzes."""
 
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from quiz_app.models import Quiz
 
+from .permissions import IsQuizOwner
 from .serializers import QuizSerializer
 
 
@@ -24,4 +26,5 @@ class QuizDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Quiz.objects.prefetch_related('questions')
     serializer_class = QuizSerializer
+    permission_classes = [IsAuthenticated, IsQuizOwner]
     http_method_names = ['get', 'patch', 'delete']
