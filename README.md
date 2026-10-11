@@ -1,4 +1,4 @@
-# 🧠 Quizly Backend
+# Quizly Backend
 
 > **This is the backend repository.** The user interface lives in the frontend repository:
 > **[Developer-Akademie-Backendkurs/project.Quizly](https://github.com/Developer-Akademie-Backendkurs/project.Quizly)** (HTML, CSS, JavaScript).
