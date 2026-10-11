@@ -10,7 +10,10 @@ from urllib.parse import parse_qs, urlparse
 import whisper
 import yt_dlp
 from django.conf import settings
+from django.db import transaction
 from google import genai
+
+from quiz_app.models import Question, Quiz
 
 AUDIO_DIR = settings.BASE_DIR / 'tmp_audio'
 VIDEO_ID_PATTERN = re.compile(r'[A-Za-z0-9_-]{11}')
@@ -180,3 +183,45 @@ def generate_quiz_data(transcript):
     """Create validated quiz data from a video transcript with Gemini."""
     answer = request_quiz_from_gemini(build_quiz_prompt(transcript))
     return parse_quiz_data(answer)
+
+
+def build_question(quiz, question_data):
+    """Create an unsaved Question object from the AI question data."""
+    return Question(
+        quiz=quiz,
+        question_title=question_data['question_title'],
+        question_options=question_data['question_options'],
+        answer=question_data['answer'],
+    )
+
+
+def save_quiz(user, video_url, quiz_data):
+    """Save the quiz and all its questions in a single transaction."""
+    with transaction.atomic():
+        quiz = Quiz.objects.create(
+            user=user,
+            title=quiz_data['title'],
+            description=quiz_data['description'],
+            video_url=video_url,
+        )
+        Question.objects.bulk_create(
+            [build_question(quiz, data) for data in quiz_data['questions']]
+        )
+    return quiz
+
+
+def get_transcript(video_url):
+    """Download the audio, transcribe it and always delete the file."""
+    audio_path = None
+    try:
+        audio_path = download_audio(video_url)
+        return transcribe_audio(audio_path)
+    finally:
+        delete_audio(audio_path)
+
+
+def create_quiz_from_url(user, video_url):
+    """Run the full pipeline from YouTube URL to saved quiz."""
+    transcript = get_transcript(video_url)
+    quiz_data = generate_quiz_data(transcript)
+    return save_quiz(user, video_url, quiz_data)
