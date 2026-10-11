@@ -17,3 +17,11 @@ class QuizListView(generics.ListAPIView):
         return Quiz.objects.filter(
             user=self.request.user
         ).prefetch_related('questions')
+
+
+class QuizDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """Retrieve, partially update or delete a single quiz."""
+
+    queryset = Quiz.objects.prefetch_related('questions')
+    serializer_class = QuizSerializer
+    http_method_names = ['get', 'patch', 'delete']
