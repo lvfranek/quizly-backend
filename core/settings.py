@@ -30,6 +30,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
+GEMINI_MODEL = 'gemini-flash-latest'
+
 WHISPER_MODEL = 'base'
 
 # SECURITY WARNING: don't run with debug turned on in production!
