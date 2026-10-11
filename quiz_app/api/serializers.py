@@ -4,6 +4,8 @@ from rest_framework import serializers
 
 from quiz_app.models import Question, Quiz
 
+from .utils import build_video_url, extract_video_id
+
 
 class QuestionSerializer(serializers.ModelSerializer):
     """Question data as returned by the list, detail and update views."""
@@ -40,3 +42,18 @@ class QuizCreateSerializer(QuizSerializer):
     """Quiz representation returned after a new quiz was created."""
 
     questions = QuestionDetailSerializer(many=True, read_only=True)
+
+
+class QuizCreateInputSerializer(serializers.Serializer):
+    """Validates the YouTube URL sent to create a new quiz."""
+
+    url = serializers.CharField()
+
+    def validate_url(self, value):
+        """Return the normalized watch URL or reject non YouTube URLs."""
+        video_id = extract_video_id(value)
+        if video_id is None:
+            raise serializers.ValidationError(
+                'Please provide a valid YouTube video URL.'
+            )
+        return build_video_url(video_id)
