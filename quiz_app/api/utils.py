@@ -2,9 +2,11 @@
 
 import re
 import uuid
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+import whisper
 import yt_dlp
 from django.conf import settings
 
@@ -75,3 +77,15 @@ def delete_audio(audio_path):
     """Delete a temporary audio file if it exists."""
     if audio_path:
         Path(audio_path).unlink(missing_ok=True)
+
+
+@lru_cache(maxsize=1)
+def get_whisper_model():
+    """Load the Whisper model once and reuse it for later requests."""
+    return whisper.load_model(settings.WHISPER_MODEL)
+
+
+def transcribe_audio(audio_path):
+    """Transcribe an audio file to text with Whisper."""
+    result = get_whisper_model().transcribe(audio_path, fp16=False)
+    return result['text'].strip()
