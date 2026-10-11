@@ -1,8 +1,14 @@
 """Helper functions for turning a YouTube video into a quiz."""
 
 import re
+import uuid
+from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+import yt_dlp
+from django.conf import settings
+
+AUDIO_DIR = settings.BASE_DIR / 'tmp_audio'
 VIDEO_ID_PATTERN = re.compile(r'[A-Za-z0-9_-]{11}')
 YOUTUBE_HOSTS = ('youtube.com', 'music.youtube.com')
 PATH_PREFIXES = ('shorts', 'embed', 'live')
@@ -44,3 +50,28 @@ def extract_video_id(url):
 def build_video_url(video_id):
     """Build the normalized watch URL that is stored in the database."""
     return f'https://www.youtube.com/watch?v={video_id}'
+
+
+def build_download_options():
+    """Return yt_dlp options that save the audio under a unique name."""
+    AUDIO_DIR.mkdir(exist_ok=True)
+    tmp_filename = str(AUDIO_DIR / f'{uuid.uuid4()}.%(ext)s')
+    return {
+        'format': 'bestaudio/best',
+        'outtmpl': tmp_filename,
+        'quiet': True,
+        'noplaylist': True,
+    }
+
+
+def download_audio(video_url):
+    """Download the audio track of a YouTube video and return its path."""
+    with yt_dlp.YoutubeDL(build_download_options()) as ydl:
+        info = ydl.extract_info(video_url, download=True)
+        return ydl.prepare_filename(info)
+
+
+def delete_audio(audio_path):
+    """Delete a temporary audio file if it exists."""
+    if audio_path:
+        Path(audio_path).unlink(missing_ok=True)
