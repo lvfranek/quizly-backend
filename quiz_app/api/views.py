@@ -19,6 +19,9 @@ from .utils import create_quiz_from_url
 
 logger = logging.getLogger(__name__)
 
+DOWNLOAD_ERROR = {'detail': 'Could not download the video.'}
+GENERATION_ERROR = {'detail': 'Quiz generation failed. Please try again.'}
+
 
 class QuizListCreateView(generics.ListCreateAPIView):
     """List the user's quizzes or create a new one from a YouTube URL."""
@@ -43,15 +46,11 @@ class QuizListCreateView(generics.ListCreateAPIView):
         try:
             quiz = create_quiz_from_url(user, video_url)
         except DownloadError:
-            return Response(
-                {'detail': 'Could not download the video.'},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+            return Response(DOWNLOAD_ERROR, status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             logger.exception('Quiz generation failed for %s', video_url)
             return Response(
-                {'detail': 'Quiz generation failed. Please try again.'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                GENERATION_ERROR, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         data = QuizCreateSerializer(quiz).data
         return Response(data, status=status.HTTP_201_CREATED)
