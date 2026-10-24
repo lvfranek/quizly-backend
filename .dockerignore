@@ -1,0 +1,10 @@
+.git
+.venv
+.env
+db.sqlite3
+tmp_audio
+resources
+staticfiles
+__pycache__
+*.py[cod]
+.DS_Store

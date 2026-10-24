@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    container_name: quizly_backend
+    env_file: .env
+    environment:
+      SQLITE_PATH: /app/data/db.sqlite3
+    volumes:
+      - quizly_data:/app/data
+    ports:
+      - "127.0.0.1:8001:8000"
+    restart: unless-stopped
+
+volumes:
+  quizly_data:

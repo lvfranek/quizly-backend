@@ -12,6 +12,9 @@ import yt_dlp
 from django.conf import settings
 from django.db import transaction
 from google import genai
+from google.genai import errors as genai_errors
+from google.genai import types as genai_types
+from yt_dlp.utils import DownloadError
 
 from quiz_app.models import Question, Quiz
 
@@ -21,6 +24,11 @@ YOUTUBE_HOSTS = ('youtube.com', 'music.youtube.com')
 PATH_PREFIXES = ('shorts', 'embed', 'live')
 QUESTION_COUNT = 10
 OPTION_COUNT = 4
+
+TRANSCRIPT_PROMPT = (
+    'Transcribe the spoken words of this video. '
+    'Return only the transcript text.'
+)
 
 QUIZ_PROMPT = """Based on the following transcript, generate a quiz in valid \
 JSON format.
@@ -210,7 +218,7 @@ def save_quiz(user, video_url, quiz_data):
     return quiz
 
 
-def get_transcript(video_url):
+def transcribe_downloaded_audio(video_url):
     """Download the audio, transcribe it and always delete the file."""
     audio_path = None
     try:
@@ -218,6 +226,39 @@ def get_transcript(video_url):
         return transcribe_audio(audio_path)
     finally:
         delete_audio(audio_path)
+
+
+def request_transcript_from_gemini(video_url):
+    """Let Gemini watch the YouTube video and return its transcript."""
+    client = genai.Client(api_key=settings.GEMINI_API_KEY)
+    video = genai_types.FileData(file_uri=video_url)
+    contents = genai_types.Content(parts=[
+        genai_types.Part(file_data=video),
+        genai_types.Part(text=TRANSCRIPT_PROMPT),
+    ])
+    response = client.models.generate_content(
+        model=settings.GEMINI_MODEL, contents=contents
+    )
+    return response.text.strip()
+
+
+def transcribe_with_gemini(video_url, download_error):
+    """Use Gemini as fallback; re-raise the download error if it fails."""
+    try:
+        return request_transcript_from_gemini(video_url)
+    except genai_errors.APIError:
+        raise download_error
+
+
+def get_transcript(video_url):
+    """
+    Transcribe the video with Whisper. Servers in data centers are often
+    blocked by YouTube, so Gemini watches the video directly instead.
+    """
+    try:
+        return transcribe_downloaded_audio(video_url)
+    except DownloadError as download_error:
+        return transcribe_with_gemini(video_url, download_error)
 
 
 def create_quiz_from_url(user, video_url):

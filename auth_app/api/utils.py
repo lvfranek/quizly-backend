@@ -12,7 +12,7 @@ def set_cookie(response, key, value, lifetime):
         value=value,
         max_age=int(lifetime.total_seconds()),
         httponly=True,
-        secure=False,
+        secure=not settings.DEBUG,
         samesite='Lax',
     )
 
