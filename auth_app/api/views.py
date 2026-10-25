@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from quiz_app.demo.service import is_demo_user, reset_demo_account
+
 from .serializers import RegistrationSerializer
 from .utils import (
     blacklist_refresh_token,
@@ -54,6 +56,8 @@ class LoginView(APIView):
                 {'detail': 'Invalid username or password.'},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
+        if is_demo_user(user):
+            reset_demo_account(user)
         return self.build_login_response(user)
 
     def build_login_response(self, user):

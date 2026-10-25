@@ -86,6 +86,18 @@ REST_FRAMEWORK = {
     ],
 }
 
+# Shared demo account for visitors: reset on every login, limited quiz creation
+DEMO_USERNAME = os.getenv('DEMO_USERNAME', 'testuser')
+DEMO_DAILY_QUIZ_LIMIT = int(os.getenv('DEMO_DAILY_QUIZ_LIMIT', '3'))
+
+# File cache, so all gunicorn workers share the demo quiz counter
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.getenv('CACHE_PATH', BASE_DIR / '.cache'),
+    }
+}
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),

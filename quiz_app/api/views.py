@@ -7,6 +7,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from yt_dlp.utils import DownloadError
 
+from quiz_app.demo.service import (
+    count_demo_quiz,
+    demo_limit_reached,
+    is_demo_user,
+)
 from quiz_app.models import Quiz
 
 from .permissions import IsQuizOwner
@@ -21,6 +26,10 @@ logger = logging.getLogger(__name__)
 
 DOWNLOAD_ERROR = {'detail': 'Could not download the video.'}
 GENERATION_ERROR = {'detail': 'Quiz generation failed. Please try again.'}
+DEMO_LIMIT_ERROR = {
+    'detail': 'The demo account can only create a few quizzes per day. '
+              'Register for free to create more.'
+}
 
 
 class QuizListCreateView(generics.ListCreateAPIView):
@@ -39,6 +48,10 @@ class QuizListCreateView(generics.ListCreateAPIView):
         input_serializer = QuizCreateInputSerializer(data=request.data)
         input_serializer.is_valid(raise_exception=True)
         video_url = input_serializer.validated_data['url']
+        if is_demo_user(request.user) and demo_limit_reached():
+            return Response(
+                DEMO_LIMIT_ERROR, status=status.HTTP_429_TOO_MANY_REQUESTS
+            )
         return self.build_create_response(request.user, video_url)
 
     def build_create_response(self, user, video_url):
@@ -52,6 +65,8 @@ class QuizListCreateView(generics.ListCreateAPIView):
             return Response(
                 GENERATION_ERROR, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+        if is_demo_user(user):
+            count_demo_quiz()
         data = QuizCreateSerializer(quiz).data
         return Response(data, status=status.HTTP_201_CREATED)
 

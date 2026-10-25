@@ -1,0 +1,323 @@
+[
+  {
+    "title": "24-Hour Roblox Game Development Challenge",
+    "description": "A developer uses AI agents and Blender to design, code, publish, and advertise a Roblox balloon game within a strict 24-hour deadline.",
+    "video_url": "https://www.youtube.com/watch?v=b715CMdnbSI",
+    "questions": [
+      {
+        "question_title": "Which game concept did the creator choose to develop for the 24-hour challenge?",
+        "question_options": [
+          "Don't Drop the Balloon",
+          "Sharks and Minnows",
+          "Bulldog",
+          "House Valley"
+        ],
+        "answer": "Don't Drop the Balloon"
+      },
+      {
+        "question_title": "Why was the creator initially unable to start a match in the first prototype?",
+        "question_options": [
+          "Claude was relying on ChatGPT to implement the UI",
+          "The sprint bar broke the physics engine",
+          "The Roblox servers experienced downtime",
+          "The arena model failed to compile"
+        ],
+        "answer": "Claude was relying on ChatGPT to implement the UI"
+      },
+      {
+        "question_title": "Which 3D software did the creator connect to Claude to build models?",
+        "question_options": [
+          "Blender",
+          "Maya",
+          "Cinema 4D",
+          "ZBrush"
+        ],
+        "answer": "Blender"
+      },
+      {
+        "question_title": "Which two games served as inspiration for the game's UI design?",
+        "question_options": [
+          "Blade Ball and Fortnite",
+          "Bulldog and Minecraft",
+          "House Valley and Roblox Bedwars",
+          "Slime Game and Apex Legends"
+        ],
+        "answer": "Blade Ball and Fortnite"
+      },
+      {
+        "question_title": "What did the creator ask his Discord server members to do while he made a kebab?",
+        "question_options": [
+          "Playtest the game and find bugs",
+          "Design game thumbnails",
+          "Vote on the official game title",
+          "Model assets for the shop"
+        ],
+        "answer": "Playtest the game and find bugs"
+      },
+      {
+        "question_title": "Why didn't the AI agent make any progress while the developer was asleep?",
+        "question_options": [
+          "It required user approval within the first 10 minutes",
+          "The creator's PC lost internet connection",
+          "The API rate limit was exceeded",
+          "The project prompt was accidentally deleted"
+        ],
+        "answer": "It required user approval within the first 10 minutes"
+      },
+      {
+        "question_title": "How many ad impressions did the game receive after spending the initial $11?",
+        "question_options": [
+          "Over 81,000",
+          "Around 220,000",
+          "Exactly 100,000",
+          "Under 10,000"
+        ],
+        "answer": "Over 81,000"
+      },
+      {
+        "question_title": "How many total plays did the game achieve from the initial ad test?",
+        "question_options": [
+          "1,300",
+          "8,100",
+          "500",
+          "10,000"
+        ],
+        "answer": "1,300"
+      },
+      {
+        "question_title": "What happens during 'Double Trouble' when only three players remain in a round?",
+        "question_options": [
+          "Two balloons appear in the arena",
+          "The balloon's falling speed doubles",
+          "Player sprint speed is multiplied by two",
+          "The arena map size is cut in half"
+        ],
+        "answer": "Two balloons appear in the arena"
+      },
+      {
+        "question_title": "Which ability is awarded to players after they complete three levels?",
+        "question_options": [
+          "Dash ability",
+          "Super Jump ability",
+          "Popcorn Burst ability",
+          "Shield ability"
+        ],
+        "answer": "Dash ability"
+      }
+    ]
+  },
+  {
+    "title": "Building a Roblox Game with AI",
+    "description": "A developer uses AI models like Claude and ChatGPT to design and build a competitive slime game on Roblox from scratch.",
+    "video_url": "https://www.youtube.com/watch?v=Ylkkn7ZwAjM",
+    "questions": [
+      {
+        "question_title": "Which AI model was primarily used to build the Roblox game?",
+        "question_options": [
+          "Claude Opus",
+          "Llama 3",
+          "Gemini Ultra",
+          "Mistral Large"
+        ],
+        "answer": "Claude Opus"
+      },
+      {
+        "question_title": "What was the name of the new Roblox account created for the project?",
+        "question_options": [
+          "Double Door Dev",
+          "Slime Studio",
+          "AI Master Dev",
+          "RobloCraft"
+        ],
+        "answer": "Double Door Dev"
+      },
+      {
+        "question_title": "Why did the creator target an audience over the age of 16?",
+        "question_options": [
+          "New Roblox games are limited to over-16 users due to safety regulations",
+          "Older players spend significantly more real money on skins",
+          "Slime battle games appeal exclusively to teenagers and adults",
+          "Roblox does not allow under-16 accounts to test indie games"
+        ],
+        "answer": "New Roblox games are limited to over-16 users due to safety regulations"
+      },
+      {
+        "question_title": "Which Steam game served as the primary gameplay inspiration?",
+        "question_options": [
+          "Bopble Battle",
+          "Rocket League",
+          "Slime Rancher",
+          "Paper Cut"
+        ],
+        "answer": "Bopble Battle"
+      },
+      {
+        "question_title": "Why was Gemini used with the /watch command during development?",
+        "question_options": [
+          "It could listen to the audio in the attached gameplay footage",
+          "It was the fastest at writing Lua code for Roblox Studio",
+          "It generated 3D slime models directly from video frames",
+          "It automatically fixed game glitches in real time"
+        ],
+        "answer": "It could listen to the audio in the attached gameplay footage"
+      },
+      {
+        "question_title": "How long was the master prompt created to provide context to the AI?",
+        "question_options": [
+          "Over 8,000 characters",
+          "Around 1,500 characters",
+          "Exactly 500 words",
+          "Over 25,000 characters"
+        ],
+        "answer": "Over 8,000 characters"
+      },
+      {
+        "question_title": "How long was the game creation challenge originally intended to last?",
+        "question_options": [
+          "One day",
+          "Two hours",
+          "One week",
+          "One month"
+        ],
+        "answer": "One day"
+      },
+      {
+        "question_title": "What lesson about AI usage costs did the creator emphasize?",
+        "question_options": [
+          "Buying a second subscription is cheaper than buying extra credits",
+          "Free trials are sufficient for full game development",
+          "Pay-as-you-go API credits are always the most affordable",
+          "Never use more than one AI model per project"
+        ],
+        "answer": "Buying a second subscription is cheaper than buying extra credits"
+      },
+      {
+        "question_title": "What item does a player unlock immediately after completing the tutorial?",
+        "question_options": [
+          "Slime battle trail",
+          "Dumbledore skin",
+          "Giant sword ability",
+          "1,000 free gems"
+        ],
+        "answer": "Slime battle trail"
+      },
+      {
+        "question_title": "Which specific skin is highlighted at the bottom of the game's shop?",
+        "question_options": [
+          "Dumbledore skin",
+          "Captain Jiggle skin",
+          "Wizard Robe skin",
+          "Neon Slime skin"
+        ],
+        "answer": "Dumbledore skin"
+      }
+    ]
+  },
+  {
+    "title": "Coach Greg on Will Tennyson's Muscle Building Experiments",
+    "description": "Coach Greg evaluates Will Tennyson's testing of various performance enhancers, equipment, and sleep aids to optimize fitness naturally.",
+    "video_url": "https://www.youtube.com/watch?v=cUthqCY6_Mw",
+    "questions": [
+      {
+        "question_title": "According to the transcript, why is oral L-carnitine considered far less effective than injectable L-carnitine?",
+        "question_options": [
+          "It causes severe stomach ulcers",
+          "Around 90% of it is wasted by the body",
+          "It is banned by WADA in oral form",
+          "It only works when combined with caffeine"
+        ],
+        "answer": "Around 90% of it is wasted by the body"
+      },
+      {
+        "question_title": "What primary physiological role of L-carnitine is highlighted in the video?",
+        "question_options": [
+          "Binding to androgen receptors in muscle tissue",
+          "Shuttling fatty acids into mitochondria to produce ATP",
+          "Directly inhibiting the production of lactic acid",
+          "Suppressing cortisol release post-workout"
+        ],
+        "answer": "Shuttling fatty acids into mitochondria to produce ATP"
+      },
+      {
+        "question_title": "What overall rating did Will Tennyson give to injectable L-carnitine due to its lack of practicality?",
+        "question_options": [
+          "1 star",
+          "3 stars",
+          "4 stars",
+          "5 stars"
+        ],
+        "answer": "3 stars"
+      },
+      {
+        "question_title": "What dangerous condition can Methylene Blue cause if combined with SSRIs or MDMA?",
+        "question_options": [
+          "Serotonin syndrome",
+          "Rhabdomyolysis",
+          "Addison's disease",
+          "Cushing's syndrome"
+        ],
+        "answer": "Serotonin syndrome"
+      },
+      {
+        "question_title": "What symptom did Will Tennyson notice shortly after taking Methylene Blue pills?",
+        "question_options": [
+          "His resting heart rate spiked to 92 bpm",
+          "His skin turned completely blue",
+          "He experienced immediate muscle cramps",
+          "He fell asleep within 10 minutes"
+        ],
+        "answer": "His resting heart rate spiked to 92 bpm"
+      },
+      {
+        "question_title": "Who introduced and demonstrated the Torque equipment to Will Tennyson?",
+        "question_options": [
+          "Greg Doucette",
+          "Eric Janicki",
+          "Derek from More Plates More Dates",
+          "Jeff Nippard"
+        ],
+        "answer": "Eric Janicki"
+      },
+      {
+        "question_title": "What is the primary benefit of using Torque equipment according to the video?",
+        "question_options": [
+          "It eliminates the need for warm-up sets entirely",
+          "It allows users to lift the maximum possible plate weight",
+          "It enables a deeper range of motion safely using lighter weights",
+          "It automatically tracks muscle hypertrophy via sensors"
+        ],
+        "answer": "It enables a deeper range of motion safely using lighter weights"
+      },
+      {
+        "question_title": "What mistake did Will Tennyson make during blood flow restriction (BFR) training?",
+        "question_options": [
+          "Placing the bands around his neck instead of limbs",
+          "Undoing the occlusion device immediately after finishing a set",
+          "Using weights that were far too heavy",
+          "Keeping the bands on for more than two hours"
+        ],
+        "answer": "Undoing the occlusion device immediately after finishing a set"
+      },
+      {
+        "question_title": "What sleep aid medication did Will Tennyson test from AlgoRx?",
+        "question_options": [
+          "Melatonin",
+          "Zopiclone",
+          "Trazodone",
+          "Diphenhydramine"
+        ],
+        "answer": "Trazodone"
+      },
+      {
+        "question_title": "What sleep score did Will Tennyson achieve on his tracking device after testing his sleep aid?",
+        "question_options": [
+          "85",
+          "92",
+          "98",
+          "100"
+        ],
+        "answer": "92"
+      }
+    ]
+  }
+]

@@ -39,6 +39,7 @@ REST API for **Quizly**, an app that turns YouTube videos into quizzes. A user p
 - **Logout with blacklist**: the refresh token is put on a blacklist and both cookies are deleted, so old tokens can never be used again.
 - **Quiz generation** from any YouTube URL format (`watch`, `youtu.be`, `shorts`, `embed`, with or without extra parameters). The stored URL is always normalized to `https://www.youtube.com/watch?v=<ID>`.
 - **Quiz management**: list, view, rename and delete quizzes. Users can only access their own quizzes. Requests for another user's quiz return `403`.
+- **Shared demo account** for visitors (`testuser`): every login resets it to three sample quizzes, and it can create at most 3 new quizzes per day (`429` after that) to keep AI costs low.
 - **Django admin** to edit quizzes and every single question.
 
 ## Installation
@@ -136,6 +137,9 @@ These values are set in `core/settings.py`.
 | `WHISPER_MODEL` | Whisper model size. `small` or `medium` are more accurate but slower. | `base` |
 | `CORS_ALLOWED_ORIGINS` | Frontend origins allowed to call the API with cookies | `http://127.0.0.1:5500`, `http://localhost:5500` |
 | `SIMPLE_JWT` | Token lifetimes | access: 5 minutes, refresh: 1 day |
+| `DEMO_USERNAME` | Shared demo account that is reset on every login (env variable) | `testuser` |
+| `DEMO_DAILY_QUIZ_LIMIT` | Quizzes the demo account may create per day (env variable) | `3` |
+| `CACHES` | File cache for the demo quiz counter, shared by all workers. Path via `CACHE_PATH` | `.cache/` |
 
 The auth cookies are set with `secure=False` so they work over plain `http` locally. Set it to `True` in `auth_app/api/utils.py` when the API runs on HTTPS.
 
@@ -231,6 +235,9 @@ quizly-backend/
 │   ├── authentication.py   # Reads the JWT from the access_token cookie
 │   └── api/
 └── quiz_app/          # Quiz and question models, admin and API
+    ├── demo/
+    │   ├── service.py          # Demo account reset and daily quiz limit
+    │   └── demo_quizzes.json   # Sample quizzes for the demo account
     └── api/
         ├── permissions.py  # Only the owner can access a quiz
         └── utils.py        # YouTube, Whisper and Gemini helpers

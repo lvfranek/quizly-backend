@@ -80,3 +80,6 @@ tmp_audio/
 # Course material
 resources/
 staticfiles/
+
+# Django file cache
+.cache/

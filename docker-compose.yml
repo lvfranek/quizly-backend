@@ -5,6 +5,7 @@ services:
     env_file: .env
     environment:
       SQLITE_PATH: /app/data/db.sqlite3
+      CACHE_PATH: /app/data/cache
     volumes:
       - quizly_data:/app/data
     ports:
