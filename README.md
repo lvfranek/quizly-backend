@@ -1,7 +1,7 @@
 # Quizly Backend
 
 > **This is the backend repository.** The user interface lives in the frontend repository:
-> **[Developer-Akademie-Backendkurs/project.Quizly](https://github.com/Developer-Akademie-Backendkurs/project.Quizly)** (HTML, CSS, JavaScript).
+> **[lvfranek/quizly-frontend](https://github.com/lvfranek/quizly-frontend)** (React, TypeScript).
 > This API is meant to be used together with that app.
 
 REST API for **Quizly**, an app that turns YouTube videos into quizzes. A user pastes a YouTube link, the backend downloads the audio, transcribes it locally with Whisper and lets Gemini Flash write a quiz with 10 questions. Built with Django and Django REST Framework.
@@ -113,7 +113,7 @@ REST API for **Quizly**, an app that turns YouTube videos into quizzes. A user p
 
    The API now runs on `http://127.0.0.1:8000/api/`.
 
-8. Start the [frontend](https://github.com/Developer-Akademie-Backendkurs/project.Quizly) with Live Server and open it at **`http://127.0.0.1:5500`**. Use `127.0.0.1`, not `localhost`: the frontend calls the API on `127.0.0.1`, and the browser only sends the auth cookies when both use the same host.
+8. Start the [frontend](https://github.com/lvfranek/quizly-frontend) with `npm run dev` and open it at **`http://127.0.0.1:5500`**. Use `127.0.0.1`, not `localhost`: the frontend calls the API on `127.0.0.1`, and the browser only sends the auth cookies when both use the same host.
 
 The first quiz after a server start takes a bit longer, because Whisper downloads (only once) and loads its model.
 
