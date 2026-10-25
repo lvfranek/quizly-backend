@@ -1,108 +1,215 @@
 [
   {
-    "title": "24-Hour Roblox Game Development Challenge",
-    "description": "A developer uses AI agents and Blender to design, code, publish, and advertise a Roblox balloon game within a strict 24-hour deadline.",
-    "video_url": "https://www.youtube.com/watch?v=b715CMdnbSI",
+    "title": "Python Basics in 10 Minutes",
+    "description": "Learn the fundamentals of Python, including variables, data types, math operators, loops, functions, and error handling.",
+    "video_url": "https://www.youtube.com/watch?v=fWjsdhR3z3c",
     "questions": [
       {
-        "question_title": "Which game concept did the creator choose to develop for the 24-hour challenge?",
+        "question_title": "Which code editor is used alongside Python 3.8 in the video?",
         "question_options": [
-          "Don't Drop the Balloon",
-          "Sharks and Minnows",
-          "Bulldog",
-          "House Valley"
+          "PyCharm",
+          "VS Code",
+          "Sublime Text",
+          "Atom"
         ],
-        "answer": "Don't Drop the Balloon"
+        "answer": "PyCharm"
       },
       {
-        "question_title": "Why was the creator initially unable to start a match in the first prototype?",
+        "question_title": "What naming convention is recommended in Python when a variable name contains more than one word?",
         "question_options": [
-          "Claude was relying on ChatGPT to implement the UI",
-          "The sprint bar broke the physics engine",
-          "The Roblox servers experienced downtime",
-          "The arena model failed to compile"
+          "Add an underscore between words",
+          "Use camelCase capitalization",
+          "Separate words with hyphens",
+          "Capitalize every letter"
         ],
-        "answer": "Claude was relying on ChatGPT to implement the UI"
+        "answer": "Add an underscore between words"
       },
       {
-        "question_title": "Which 3D software did the creator connect to Claude to build models?",
+        "question_title": "What values can a boolean data type represent in Python?",
         "question_options": [
-          "Blender",
-          "Maya",
-          "Cinema 4D",
-          "ZBrush"
+          "True or False",
+          "Any positive or negative integer",
+          "Text wrapped inside quotation marks",
+          "A list of items inside brackets"
         ],
-        "answer": "Blender"
+        "answer": "True or False"
       },
       {
-        "question_title": "Which two games served as inspiration for the game's UI design?",
+        "question_title": "Which function is used to convert a string representing a number into an integer?",
         "question_options": [
-          "Blade Ball and Fortnite",
-          "Bulldog and Minecraft",
-          "House Valley and Roblox Bedwars",
-          "Slime Game and Apex Legends"
+          "int",
+          "str",
+          "bool",
+          "list"
         ],
-        "answer": "Blade Ball and Fortnite"
+        "answer": "int"
       },
       {
-        "question_title": "What did the creator ask his Discord server members to do while he made a kebab?",
+        "question_title": "Which operator is used to calculate exponential power in Python?",
         "question_options": [
-          "Playtest the game and find bugs",
-          "Design game thumbnails",
-          "Vote on the official game title",
-          "Model assets for the shop"
+          "**",
+          "^",
+          "//",
+          "%%"
         ],
-        "answer": "Playtest the game and find bugs"
+        "answer": "**"
       },
       {
-        "question_title": "Why didn't the AI agent make any progress while the developer was asleep?",
+        "question_title": "At what index does a loop using range(3) begin iterating?",
         "question_options": [
-          "It required user approval within the first 10 minutes",
-          "The creator's PC lost internet connection",
-          "The API rate limit was exceeded",
-          "The project prompt was accidentally deleted"
+          "0",
+          "1",
+          "3",
+          "-1"
         ],
-        "answer": "It required user approval within the first 10 minutes"
+        "answer": "0"
       },
       {
-        "question_title": "How many ad impressions did the game receive after spending the initial $11?",
+        "question_title": "What is the purpose of the break statement inside a loop?",
         "question_options": [
-          "Over 81,000",
-          "Around 220,000",
-          "Exactly 100,000",
-          "Under 10,000"
+          "Cancels and exits the loop",
+          "Restarts the loop from the start",
+          "Skips only the current iteration",
+          "Pauses the loop for user input"
         ],
-        "answer": "Over 81,000"
+        "answer": "Cancels and exits the loop"
       },
       {
-        "question_title": "How many total plays did the game achieve from the initial ad test?",
+        "question_title": "Which keyword is used to define a new function in Python?",
         "question_options": [
-          "1,300",
-          "8,100",
-          "500",
-          "10,000"
+          "def",
+          "func",
+          "function",
+          "define"
         ],
-        "answer": "1,300"
+        "answer": "def"
       },
       {
-        "question_title": "What happens during 'Double Trouble' when only three players remain in a round?",
+        "question_title": "Which keyword can serve as a placeholder inside an empty function to prevent errors?",
         "question_options": [
-          "Two balloons appear in the arena",
-          "The balloon's falling speed doubles",
-          "Player sprint speed is multiplied by two",
-          "The arena map size is cut in half"
+          "pass",
+          "skip",
+          "void",
+          "null"
         ],
-        "answer": "Two balloons appear in the arena"
+        "answer": "pass"
       },
       {
-        "question_title": "Which ability is awarded to players after they complete three levels?",
+        "question_title": "Which block is executed when an exception occurs inside a try block?",
         "question_options": [
-          "Dash ability",
-          "Super Jump ability",
-          "Popcorn Burst ability",
-          "Shield ability"
+          "except",
+          "catch",
+          "finally",
+          "error"
         ],
-        "answer": "Dash ability"
+        "answer": "except"
+      }
+    ]
+  },
+  {
+    "title": "SQL Fundamentals and Relational Databases Quiz",
+    "description": "A brief overview of Structured Query Language (SQL), its history, structure, and essential commands for relational databases.",
+    "video_url": "https://www.youtube.com/watch?v=zsjvFFKOm3c",
+    "questions": [
+      {
+        "question_title": "What does SQL stand for?",
+        "question_options": [
+          "Structured Question Logic",
+          "Standard Query Language",
+          "Structured Query Language",
+          "System Query Logic"
+        ],
+        "answer": "Structured Query Language"
+      },
+      {
+        "question_title": "In what decade was SQL initially developed for IBM's System R database?",
+        "question_options": [
+          "Early 1960s",
+          "Early 1970s",
+          "Early 1980s",
+          "Late 1980s"
+        ],
+        "answer": "Early 1970s"
+      },
+      {
+        "question_title": "In which year was SQL standardized into the widely used syntax?",
+        "question_options": [
+          "1972",
+          "1986",
+          "1991",
+          "1999"
+        ],
+        "answer": "1986"
+      },
+      {
+        "question_title": "In a relational database table, what does each row represent?",
+        "question_options": [
+          "An individual record or data point",
+          "A specific data attribute",
+          "A relational schema",
+          "A database query"
+        ],
+        "answer": "An individual record or data point"
+      },
+      {
+        "question_title": "What is the unique ID assigned to an individual record in a table called?",
+        "question_options": [
+          "Foreign key",
+          "Primary key",
+          "Composite key",
+          "Index key"
+        ],
+        "answer": "Primary key"
+      },
+      {
+        "question_title": "What is the key stored in a table that references a unique ID in a different table to establish a relationship?",
+        "question_options": [
+          "Primary key",
+          "Foreign key",
+          "Attribute key",
+          "Secondary key"
+        ],
+        "answer": "Foreign key"
+      },
+      {
+        "question_title": "What is the primary benefit of structuring data in its smallest normal form?",
+        "question_options": [
+          "Eliminating duplication and redundancy",
+          "Increasing database storage size",
+          "Preventing the use of table joins",
+          "Removing the need for primary keys"
+        ],
+        "answer": "Eliminating duplication and redundancy"
+      },
+      {
+        "question_title": "Which SQL keyword is used to query specific columns from a table?",
+        "question_options": [
+          "FILTER",
+          "SELECT",
+          "CHOOSE",
+          "FETCH"
+        ],
+        "answer": "SELECT"
+      },
+      {
+        "question_title": "Which SQL keyword is used to filter records based on a specific condition?",
+        "question_options": [
+          "WHERE",
+          "WHEN",
+          "MATCH",
+          "IF"
+        ],
+        "answer": "WHERE"
+      },
+      {
+        "question_title": "Which SQL keyword connects data across different tables using matching keys?",
+        "question_options": [
+          "MERGE",
+          "LINK",
+          "JOIN",
+          "ATTACH"
+        ],
+        "answer": "JOIN"
       }
     ]
   },
@@ -210,113 +317,6 @@
           "Neon Slime skin"
         ],
         "answer": "Dumbledore skin"
-      }
-    ]
-  },
-  {
-    "title": "Coach Greg on Will Tennyson's Muscle Building Experiments",
-    "description": "Coach Greg evaluates Will Tennyson's testing of various performance enhancers, equipment, and sleep aids to optimize fitness naturally.",
-    "video_url": "https://www.youtube.com/watch?v=cUthqCY6_Mw",
-    "questions": [
-      {
-        "question_title": "According to the transcript, why is oral L-carnitine considered far less effective than injectable L-carnitine?",
-        "question_options": [
-          "It causes severe stomach ulcers",
-          "Around 90% of it is wasted by the body",
-          "It is banned by WADA in oral form",
-          "It only works when combined with caffeine"
-        ],
-        "answer": "Around 90% of it is wasted by the body"
-      },
-      {
-        "question_title": "What primary physiological role of L-carnitine is highlighted in the video?",
-        "question_options": [
-          "Binding to androgen receptors in muscle tissue",
-          "Shuttling fatty acids into mitochondria to produce ATP",
-          "Directly inhibiting the production of lactic acid",
-          "Suppressing cortisol release post-workout"
-        ],
-        "answer": "Shuttling fatty acids into mitochondria to produce ATP"
-      },
-      {
-        "question_title": "What overall rating did Will Tennyson give to injectable L-carnitine due to its lack of practicality?",
-        "question_options": [
-          "1 star",
-          "3 stars",
-          "4 stars",
-          "5 stars"
-        ],
-        "answer": "3 stars"
-      },
-      {
-        "question_title": "What dangerous condition can Methylene Blue cause if combined with SSRIs or MDMA?",
-        "question_options": [
-          "Serotonin syndrome",
-          "Rhabdomyolysis",
-          "Addison's disease",
-          "Cushing's syndrome"
-        ],
-        "answer": "Serotonin syndrome"
-      },
-      {
-        "question_title": "What symptom did Will Tennyson notice shortly after taking Methylene Blue pills?",
-        "question_options": [
-          "His resting heart rate spiked to 92 bpm",
-          "His skin turned completely blue",
-          "He experienced immediate muscle cramps",
-          "He fell asleep within 10 minutes"
-        ],
-        "answer": "His resting heart rate spiked to 92 bpm"
-      },
-      {
-        "question_title": "Who introduced and demonstrated the Torque equipment to Will Tennyson?",
-        "question_options": [
-          "Greg Doucette",
-          "Eric Janicki",
-          "Derek from More Plates More Dates",
-          "Jeff Nippard"
-        ],
-        "answer": "Eric Janicki"
-      },
-      {
-        "question_title": "What is the primary benefit of using Torque equipment according to the video?",
-        "question_options": [
-          "It eliminates the need for warm-up sets entirely",
-          "It allows users to lift the maximum possible plate weight",
-          "It enables a deeper range of motion safely using lighter weights",
-          "It automatically tracks muscle hypertrophy via sensors"
-        ],
-        "answer": "It enables a deeper range of motion safely using lighter weights"
-      },
-      {
-        "question_title": "What mistake did Will Tennyson make during blood flow restriction (BFR) training?",
-        "question_options": [
-          "Placing the bands around his neck instead of limbs",
-          "Undoing the occlusion device immediately after finishing a set",
-          "Using weights that were far too heavy",
-          "Keeping the bands on for more than two hours"
-        ],
-        "answer": "Undoing the occlusion device immediately after finishing a set"
-      },
-      {
-        "question_title": "What sleep aid medication did Will Tennyson test from AlgoRx?",
-        "question_options": [
-          "Melatonin",
-          "Zopiclone",
-          "Trazodone",
-          "Diphenhydramine"
-        ],
-        "answer": "Trazodone"
-      },
-      {
-        "question_title": "What sleep score did Will Tennyson achieve on his tracking device after testing his sleep aid?",
-        "question_options": [
-          "85",
-          "92",
-          "98",
-          "100"
-        ],
-        "answer": "92"
       }
     ]
   }
